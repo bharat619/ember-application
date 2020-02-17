@@ -1,9 +1,10 @@
 import Component from "@ember/component";
 
 export default Component.extend({
+  isWide: false,
   actions: {
-    showPerson(person) {
-      alert(person);
+    toggleImageSize() {
+      this.toggleProperty("isWide");
     }
   }
 });
