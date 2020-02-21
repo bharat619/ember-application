@@ -41,7 +41,6 @@ export default function() {
   ];
 
   this.get("/rentals", (db, request) => {
-    debugger;
     if (request.queryParams.city !== undefined) {
       let filteredResults = rentals.filter(i => {
         return (
@@ -55,5 +54,9 @@ export default function() {
     } else {
       return { rental: rentals };
     }
+  });
+
+  this.get("/rentals/:id", (db, request) => {
+    return { rental: rentals.find(rental => request.params.id === rental.id) };
   });
 }
